@@ -1,0 +1,16 @@
+{
+  "name": "nyaabot",
+  "version": "1.0.0",
+  "description": "crude bot to poll hs/nyaa for new torrents",
+  "main": "main.js",
+  "dependencies": {
+    "htmlparser2": "^4.0.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ninjapretzel",
+  "license": "ISC"
+}
