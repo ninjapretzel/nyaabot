@@ -76,8 +76,7 @@ function download(url, destination) {
 			console.error("Error Downloading:")
 			console.error(err);
 		}
-		console.log(typeof(body))	
-		console.log("hi")
+		console.log(`Wrote ${destination}`)
 		fs.writeFile(destination, body, err2 => {
 			if (err2) {
 				console.error("Error Writing file:")
