@@ -168,4 +168,4 @@ function check() {
 }
 
 check();
-setInterval(() => { check(); }, checkInterval);
+setInterval(() => { check(); }, config.checkInterval);
