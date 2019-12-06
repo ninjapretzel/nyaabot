@@ -18,7 +18,10 @@ const config = {
 		"Legend of the Galactic Heroes - Die Neue These",
 		"Watashi, Nouryoku wa Heikinchi de tte Itta yo ne!",
 	],
+	resolution: "720p",
+	
 	requestTimeOut: 10 * 1000,
+	saveInterval: 10 * 60 * 1000,
 	checkInterval: 10 * 60 * 1000,
 };
 
@@ -52,7 +55,7 @@ const template = [
 	"RESOLUTION",
 	"\\]\\.mkv",
 ]
-const regexes = config.titles.map( it => regexFor(it, "720p") )
+const regexes = config.titles.map( it => regexFor(it, config.resolution) )
 function regexFor(title, resolution) {
 	const filledTemplate = template.map((it) => {
 		if (it === "TITLE") { return title; }
@@ -67,8 +70,8 @@ function download(url, destination) {
 	const base = URLLIB.parse(config.feedUrl);
 	var opts = {
 		url: base.protocol + "//" + base.hostname + url,
-		timeout: 10 * 1000,
-		encoding: null
+		timeout: config.requestTimeOut,
+		encoding: null,
 	}
 	console.log(`${opts.url} => ${destination}`)
 	request.get(opts, (err, res, body) => {
@@ -168,3 +171,6 @@ function check() {
 
 check();
 setInterval(() => { check(); }, config.checkInterval);
+setInterval(() => { 
+	fs.writeFile("grabbed.json", JSON.stringify(grabbed, null, 4))
+}, config.saveInterval)
