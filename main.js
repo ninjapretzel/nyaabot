@@ -172,5 +172,7 @@ function check() {
 check();
 setInterval(() => { check(); }, config.checkInterval);
 setInterval(() => { 
-	fs.writeFile("grabbed.json", JSON.stringify(grabbed, null, 4))
+	fs.writeFile("grabbed.json", JSON.stringify(grabbed, null, 4), (err) => {
+		if (err) { console.error(err); }
+	})
 }, config.saveInterval)
