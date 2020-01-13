@@ -10,6 +10,13 @@ const config = {
 	torrentPath: "C:/NON-OS/Torrent/autotorrent",
 	feedUrl: "https://nyaa.si/user/HorribleSubs?f=0&c=0_0&q=",
 	titles: [
+		"Magia Record",
+		"ID INVADED",
+		"Itai no wa Iya nano de Bougyoryoku ni Kyokufuri Shitai to Omoimasu",
+		"Somali to Mori no Kamisama",
+		"Majutsushi Orphen Hagure Tabi",
+		"Infinite Dendrogram",
+		"Darwin's Game",
 		"Dr\\. Stone",
 		"Honzuki no Gekokujou",
 		"Vinland Saga",
@@ -22,7 +29,7 @@ const config = {
 	
 	requestTimeOut: 10 * 1000,
 	saveInterval: 10 * 60 * 1000,
-	checkInterval: 10 * 60 * 1000,
+	checkInterval: 60 * 60 * 1000,
 };
 
 let loadedGrabbed;
