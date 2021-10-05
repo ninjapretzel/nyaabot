@@ -8,22 +8,16 @@ const htmlparser2 = require('htmlparser2')
 // Default config
 const config = {
 	torrentPath: "C:/NON-OS/Torrent/autotorrent",
-	feedUrl: "https://nyaa.si/user/HorribleSubs?f=0&c=0_0&q=",
+	feedUrl: "https://nyaa.si/user/SubsPlease?f=0&c=0_0&q=",
 	titles: [
-		"Magia Record",
-		"ID INVADED",
-		"Itai no wa Iya nano de Bougyoryoku ni Kyokufuri Shitai to Omoimasu",
-		"Somali to Mori no Kamisama",
-		"Majutsushi Orphen Hagure Tabi",
-		"Infinite Dendrogram",
-		"Darwin's Game",
-		"Dr\\. Stone",
-		"Honzuki no Gekokujou",
-		"Vinland Saga",
-		"PSYCHO-PASS 3",
-		"Boku no Hero Academia",
-		"Legend of the Galactic Heroes - Die Neue These",
-		"Watashi, Nouryoku wa Heikinchi de tte Itta yo ne!",
+		"Mushoku Tensei",
+		// "Tesla Note",
+		// "Mieruko-chan",
+		// "Sankaku Mado no Sotogawa wa Yoru",
+		// "Tsuki to Laika to Nosferatu",
+		// "Kyuuketsuki Sugu Shinu",
+		// "Kyoukai Senki",
+		// "Shinka no Mi - Shiranai Uchi ni Kachigumi Jinsei",
 	],
 	resolution: "720p",
 	
@@ -54,13 +48,14 @@ process.on("exit", () => {
 	console.log("Done saving, bye");
 })
 
+///(\[SubsPlease\])\s+(Mushoku Tensei)\s+-\s+(\d+)\s+\(720p\)\s+\[[0-9A-F]+\].mkv
 ///(\[HorribleSubs\])\s+(Dr\. Stone)\s-\s(\d+)\s\[720p\]\.mkv/g
 const template = [
-	"(\\[HorribleSubs\\]) (",
+	"(\\[SubsPlease\\]) (",
 	"TITLE",
-	")(.*?)(\\d+) \\[",
+	")(.*?)(\\d+) \\(",
 	"RESOLUTION",
-	"\\]\\.mkv",
+	"\\)\\s+\\[[0-9A-F]+\\]\\.mkv",
 ]
 const regexes = config.titles.map( it => regexFor(it, config.resolution) )
 function regexFor(title, resolution) {
